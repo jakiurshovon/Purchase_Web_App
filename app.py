@@ -5,6 +5,7 @@ from masters import masters_page
 from purchase import create_form, edit_grid
 from reports import summary_page, detail_page
 from ui_components import filters_section
+from db import fetch_all
 
 st.set_page_config(page_title="Purchase Entry Web App", layout="wide")
 
@@ -34,10 +35,15 @@ def main():
     choice = sidebar_menu()
     
     # Shared filters for reports and list
+    # Fetch master data for filters
+    countries = fetch_all("countries", "country")
+    regions = fetch_all("regions", "name")
+    houses = fetch_all("exchange_houses", "name")
+
     filters = filters_section(
-        countries=[], # You can prefetch from masters tables if needed
-        regions=[],
-        houses=[],
+        countries=countries,
+        regions=regions,
+        houses=houses,
     )
     
     if choice == "Dashboard":

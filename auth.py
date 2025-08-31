@@ -4,7 +4,6 @@ from db import auth_client, get_profile, ensure_profile_fields
 
 
 
-
 def login_form() -> Optional[dict]:
     st.title("🔑 Login")
     email = st.text_input("Email")

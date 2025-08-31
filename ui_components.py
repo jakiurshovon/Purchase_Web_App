@@ -3,13 +3,10 @@ import pandas as pd
 from typing import Optional, List
 
 
-
-
 def header(title: str, subtitle: Optional[str] = None):
     st.markdown(f"# {title}")
     if subtitle:
         st.caption(subtitle)
-
 
 
 
@@ -32,8 +29,6 @@ def filters_section(countries: List[str], regions: List[str], houses: List[str])
         "region": None if region == "All" else region,
         "exchange_house": None if house == "All" else house,
         }
-
-
 
 
 def data_editor(df: pd.DataFrame, key: str = "editor"):
